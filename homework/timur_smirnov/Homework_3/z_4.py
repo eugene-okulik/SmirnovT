@@ -2,7 +2,7 @@ import math
 
 a = 4
 b = 5
-print(f'Гипотенуза прямоугольного треугольника с катетами a и b = ', end='')
+print(f'Gipotenusa = ', end='')
 print(math.sqrt(a**2 + b**2))
-print(f'Площадь прямоугольного треугольника с катетами a и b = ', end='')
+print(f'S = ', end='')
 print(0.5 * a * b)
