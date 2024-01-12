@@ -7,7 +7,7 @@ my_dict = {
 print(my_dict['tuple'][-1])
 my_dict['list'].append(6)
 del my_dict['list'][1]
-my_dict['dict']['i am a tuple'] = 'primer'
+my_dict['dict'][('i am a tuple',)] = 'primer'
 del my_dict['dict']['b']
 my_dict['set'].add(6)
 my_dict['set'].discard(1)
