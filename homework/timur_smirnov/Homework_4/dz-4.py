@@ -11,5 +11,4 @@ my_dict['dict']['i am a tuple'] = 'primer'
 del my_dict['dict']['b']
 my_dict['set'].add(6)
 my_dict['set'].discard(1)
-print(my_dict, end=',')
-
+print(my_dict)
