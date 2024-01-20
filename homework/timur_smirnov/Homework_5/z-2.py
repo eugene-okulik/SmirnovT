@@ -5,8 +5,8 @@ results = [
 ]
 for result in results:
     index = result.index(":")
-    number_str = result[index + 2:] 
-    number = int(number_str) 
+    number_str = result[index + 2:]
+    number = int(number_str)
     new_number = number + 10
     print(new_number)
     
