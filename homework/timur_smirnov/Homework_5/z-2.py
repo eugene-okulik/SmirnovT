@@ -9,4 +9,3 @@ for result in results:
     number = int(number_str)
     new_number = number + 10
     print(new_number)
-    
