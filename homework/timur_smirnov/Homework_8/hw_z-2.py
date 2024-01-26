@@ -16,5 +16,4 @@ def get_fibonacci_number(n):
 print(get_fibonacci_number(5))       # Пятое число
 print(get_fibonacci_number(200))     # Двухсотое число
 print(get_fibonacci_number(1000))    # Тысячное число
-# Стотысячное число займет очень много времени для генерации и может быть вычислено не во всех средах
-#print(get_fibonacci_number(100000))  # Стотысячное число
+print(get_fibonacci_number(100000))  # Стотысячное число
