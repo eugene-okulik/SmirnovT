@@ -2,7 +2,6 @@ import random
 
 salary = int(input("Введите зарплату: "))
 flag = False
-#salary = 0
 bonus_input = input("Если бонус доступен, введите yes': ").lower()
 if bonus_input in ["yes", "да", '1']:
     flag = True
