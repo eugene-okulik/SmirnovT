@@ -11,5 +11,5 @@ def example(text):
     print(text)
     print()
 
-    
+
 example('print me')
