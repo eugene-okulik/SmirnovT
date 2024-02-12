@@ -12,7 +12,8 @@ class Book:
 
     def __str__(self):
         reserved_info = ', зарезервирована' if self.is_reserved else ''
-        return f"Название: {self.title}, Автор: {self.author}, страниц: {self.num_pages}, материал: {self.page_material}{reserved_info}"
+        return (f"Название: {self.title}, Автор: {self.author}, "
+                f"страниц: {self.num_pages}, материал: {self.page_material}{reserved_info}")
 
 
 class Textbook(Book):

@@ -2,7 +2,6 @@ class Book:
     page_material = 'бумага'
     has_text = True
 
-
     def __init__(self, title, author, num_pages, isbn, is_reserved=False):
         self.title = title
         self.author = author
@@ -10,10 +9,10 @@ class Book:
         self.isbn = isbn
         self.is_reserved = is_reserved
 
-
     def __str__(self):
         reserved_info = ', зарезервирована' if self.is_reserved else ''
-        return f"Название: {self.title}, Автор: {self.author}, страниц: {self.num_pages}, материал: {self.page_material}{reserved_info}"
+        return (f"Название: {self.title}, Автор: {self.author}, "
+                f"страниц: {self.num_pages}, материал: {self.page_material}{reserved_info}")
 
 
 book1 = Book(title='Идиот', author='Достоевский', num_pages=500, isbn='978-3-16-148410-0')
