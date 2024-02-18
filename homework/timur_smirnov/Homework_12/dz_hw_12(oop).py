@@ -11,13 +11,16 @@ class Flower:
               f"длина стебля: {self.stem_length}, "
               f"время жизни: {self.lifespan} дней")
 
+
 class Rose(Flower):
     def __init__(self, color, stem_length, price):
         super().__init__(color, stem_length, price, 10)  # Розы живут в среднем 10 дней
 
+
 class Tulip(Flower):
     def __init__(self, color, stem_length, price):
         super().__init__(color, stem_length, price, 7)  # Тюльпаны живут в среднем 7 дней
+
 
 class Lily(Flower):
     def __init__(self, color, stem_length, price):
