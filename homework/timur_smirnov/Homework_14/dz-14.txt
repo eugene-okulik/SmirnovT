@@ -1,0 +1,76 @@
+1. Создайте студента (student)
+
+INSERT INTO students (name, second_name) VALUES ('Тимур', 'Смирнов');
+
+-- Получение ID только что созданного студента
+SELECT LAST_INSERT_ID();
+
+2. Создайте несколько книг (books) и укажите, что ваш созданный студент взял их
+
+INSERT INTO books (title, taken_by_student_id) VALUES ('Алгебра для чайников - 2', 1153), ('Бедная Саша', 1153), ('Гулливер', 1153);
+
+-- Проверки созданных записей
+SELECT * FROM books b 
+WHERE title LIKE 'Алгебра для чайников';
+
+SELECT * FROM books b 
+WHERE taken_by_student_id = 1153;
+
+3. Создайте группу (group) и определите своего студента туда
+
+-- Создание группы 
+INSERT INTO `groups` (title , start_date, end_date) VALUES ('Физика', 'may 2024', 'august 2024');
+-- Получение ID созданной записи
+SELECT LAST_INSERT_ID();
+
+-- Обновление данных записи таблицы students, привязка к созданной группе
+UPDATE students SET group_id = 1140 
+WHERE id = 1153;
+
+-- Проверка выполнения операции привязки студента к группе
+SELECT * FROM students s 
+WHERE id = 1153;
+
+4. Создайте несколько учебных предметов (subjects)
+
+INSERT INTO subjets (title) VALUES ('SQL для чайников'), ('Python БАЗА');
+
+5. Создайте по два занятия для каждого предмета (lessons)
+
+INSERT INTO lessons (subject_id, title) 
+VALUES ((SELECT id FROM subjets s WHERE s.title  = 'SQL для чайников'), 'Квантовая физика 1'), 
+((SELECT id FROM subjets s WHERE s.title = 'SQL для чайников'), 'Квантовая физика 2'),
+((SELECT id FROM subjets s WHERE s.title = 'Python БАЗА'), 'Изучаем Python 1')
+((SELECT id FROM subjets s WHERE s.title = 'Python БАЗА'), 'Изучаем Python 2');
+
+6. Поставьте своему студенту оценки (marks) для всех созданных вами занятий
+
+INSERT INTO marks (student_id, lesson_id, value)
+SELECT s.id, l.id, 5
+FROM students s
+JOIN lessons l ON l.title = 'Квантовая физика 1'
+WHERE s.name = 'Тимур' AND s.second_name = 'Смирнов';
+
+INSERT INTO marks (student_id, lesson_id, value)
+SELECT s.id, l.id, 4
+FROM students s
+JOIN lessons l ON l.title = 'Квантовая физика 2'
+WHERE s.name = 'Тимур' AND s.second_name = 'Смирнов';
+
+INSERT INTO marks (student_id, lesson_id, value)
+SELECT s.id, l.id, 3
+FROM students s
+JOIN lessons l ON l.title = 'Изучаем Python 1'
+WHERE s.name = 'Тимур' AND s.second_name = 'Смирнов';
+
+INSERT INTO marks (student_id, lesson_id, value)
+SELECT s.id, l.id, 2
+FROM students s
+JOIN lessons l ON l.title = 'Изучаем Python 2'
+WHERE s.name = 'Тимур' AND s.second_name = 'Смирнов';
+
+-- Проверка выполнения
+
+SELECT * FROM marks m 
+WHERE student_id = (SELECT id FROM students s where name = 'Тимур' AND second_name = 'Смирнов');
+
